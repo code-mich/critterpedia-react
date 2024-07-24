@@ -1,9 +1,7 @@
 @use "styles/setup";
+@use "styles/variables.scss";
+@use "styles/typography";
 @use "styles/baseStyles";
 @use "styles/header";
 @use "styles/landing";
 @use "styles/form";
-
-body {
-	background-color: gray;
-}

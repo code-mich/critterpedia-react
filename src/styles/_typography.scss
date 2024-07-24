@@ -1,0 +1,63 @@
+@use "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Varela+Round&display=swap");
+
+h1,
+h2 {
+	font-family: variables.$headingFont;
+	letter-spacing: 2px;
+}
+
+h3,
+p,
+label {
+	font-family: variables.$bodyFont;
+	color: variables.$blathersBrown;
+	font-size: variables.$baseFontSize;
+}
+
+h1 {
+	color: variables.$contentBackground;
+	font-size: 2rem;
+	span {
+		color: variables.$nookYellow;
+	}
+}
+
+h3 {
+	font-family: variables.$headingFont;
+	letter-spacing: 2px;
+	font-size: 1.2rem;
+	color: variables.$brewstersCoffee;
+	padding: 2.5% 0;
+}
+
+body {
+	font-family: variables.$bodyFont;
+}
+
+a {
+	text-decoration: none;
+	color: variables.$tropicalTeal;
+	font-weight: bold;
+	transition: all 0.5s;
+	&:hover,
+	&:focus {
+		color: variables.$islandCoral;
+	}
+}
+
+.results {
+	h3 {
+		color: variables.$islandCoral;
+		font-size: 1.4rem;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	p {
+		line-height: 30px;
+	}
+	.itemProperty,
+	.itemSubheading {
+		text-transform: lowercase;
+	}
+}
