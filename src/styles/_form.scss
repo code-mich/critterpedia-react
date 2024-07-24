@@ -1,0 +1,59 @@
+@use "./variables";
+
+.formSection {
+	width: 100%;
+	text-align: center;
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	fieldset {
+		border: none;
+		padding: 0;
+	}
+}
+
+.hemisphereContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	.northernContainer,
+	.southernContainer {
+		padding: 0 5%;
+		margin: 2.5% 0;
+	}
+}
+select {
+	margin: 2.5% auto;
+	padding: 3.5%;
+	text-align: center;
+	border-radius: 10px;
+	border: 2px solid variables.$contentBackground;
+	cursor: pointer;
+	background-color: variables.$blathersBrown;
+	transition: background-color 0.5s;
+	color: variables.$contentBackground;
+	&:hover,
+	&:focus {
+		background-color: variables.$brewstersLatte;
+		border: 2px solid variables.$blathersBrown;
+	}
+}
+
+button {
+	border: none;
+	border-radius: 10px;
+	margin: 3.5% auto;
+	padding: 4.5% 15%;
+	background-color: variables.$tropicalTeal;
+	color: variables.$contentBackground;
+	transition: all 0.5s;
+	cursor: pointer;
+	&:hover,
+	&:focus {
+		background-color: variables.$islandCoral;
+	}
+}

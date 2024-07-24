@@ -3,7 +3,7 @@ import Month from "./Month";
 
 function Form() {
 	return (
-		<section>
+		<section className="formSection">
 			<form>
 				<Hemisphere />
 				<Month />

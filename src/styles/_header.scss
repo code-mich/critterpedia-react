@@ -1,0 +1,36 @@
+@use "./variables";
+
+header {
+	padding: 2.5% 0;
+	background-color: variables.$tropicalTeal;
+	position: fixed;
+	width: 100%;
+	z-index: 20;
+	&::after {
+		@include variables.beforeAfter("../assets/wave.svg");
+		bottom: -28px;
+		height: 30px;
+		transform: rotateX(-180deg);
+	}
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	.homeLink {
+		display: flex;
+		flex-direction: row;
+		transition: transform 0.3s;
+		&:hover,
+		&:focus {
+			transform: scale(1.1);
+		}
+	}
+	.leafIcon {
+		margin-left: 2%;
+	}
+}
+h1 {
+	display: flex;
+}
