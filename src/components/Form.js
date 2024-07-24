@@ -1,8 +1,15 @@
+import Hemisphere from "./Hemisphere";
+import Month from "./Month";
+
 function Form() {
 	return (
-		// form asking for month and hemisphere
 		<section>
-			<p>this is a form</p>
+			<form>
+				<Hemisphere />
+				<Month />
+				{/* submit button */}
+				<button type="submit">Local critters in your area</button>
+			</form>
 		</section>
 	);
 }
