@@ -1,4 +1,4 @@
-function Hemisphere() {
+function Hemisphere({ onChange }) {
 	return (
 		<div>
 			<h3>Hemisphere</h3>
@@ -6,14 +6,26 @@ function Hemisphere() {
 				<div className="hemisphereContainer">
 					<legend className="sr-only">Select your island's hemisphere</legend>
 					<div className="northernContainer">
-						<input type="radio" name="hemisphere" id="north" value="north" />
-						<label for="north" name="hemisphere">
+						<label>
+							<input
+								type="radio"
+								name="hemisphere"
+								id="north"
+								value="north"
+								onChange={onChange}
+							/>
 							Northern
 						</label>
 					</div>
 					<div className="southernContainer">
-						<input type="radio" name="hemisphere" id="south" value="south" />
-						<label for="south" name="hemisphere">
+						<label>
+							<input
+								type="radio"
+								name="hemisphere"
+								id="south"
+								value="south"
+								onChange={onChange}
+							/>
 							Southern
 						</label>
 					</div>

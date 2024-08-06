@@ -1,15 +1,17 @@
-function Month() {
+function Month({ onChange }) {
 	return (
 		<div>
 			<h3>Month</h3>
-			<label for="month" className="sr-only">
+			<label htmlFor="month" className="sr-only">
 				Choose the month
 			</label>
-			<select name="month" id="month" required>
-				<option value="" selected disabled>
+			<select name="month" id="month" required onChange={onChange}>
+				{/* <option value="0" disabled>
 					The month is...
+				</option> */}
+				<option value="1" defaultValue>
+					January
 				</option>
-				<option value="1">January</option>
 				<option value="2">February</option>
 				<option value="3">March</option>
 				<option value="4">April</option>
