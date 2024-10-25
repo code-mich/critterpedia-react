@@ -2,7 +2,7 @@ import fishIcon from "../assets/fish-transparent.png";
 import bugIcon from "../assets/bug-transparent.png";
 import seaIcon from "../assets/sea-transparent.png";
 
-function CritterTabs({ changeCritter }) {
+export function CritterTabs({ changeCritter }) {
 	return (
 		<div className="critterContent">
 			<ul className="tabs">
@@ -28,5 +28,3 @@ function CritterTabs({ changeCritter }) {
 		</div>
 	);
 }
-
-export default CritterTabs;

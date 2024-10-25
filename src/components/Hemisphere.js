@@ -1,4 +1,4 @@
-function Hemisphere({ onChange }) {
+export function Hemisphere({ onChange }) {
 	return (
 		<div>
 			<h3>Hemisphere</h3>
@@ -34,5 +34,3 @@ function Hemisphere({ onChange }) {
 		</div>
 	);
 }
-
-export default Hemisphere;

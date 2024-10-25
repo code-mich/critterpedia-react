@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Form from "./Form";
-import CritterTabs from "./CritterTabs";
-import CritterInfo from "./CritterInfo";
+import { Form } from "./Form";
+import { CritterTabs } from "./CritterTabs";
+import { CritterInfo } from "./CritterInfo";
 import blathersIcon from "../assets/blathers_icon.png";
 
-function Landing() {
+export function Landing() {
 	const [islandInfo, setIslandInfo] = useState({
 		hemisphere: "",
 		month: 1,
@@ -16,21 +16,19 @@ function Landing() {
 	const [apiData, setApiData] = useState({});
 
 	const handleIslandInfo = (hemisphere, month) => {
-		// Reset formSubmitted state
-		setFormSubmitted(false);
-		setIslandInfo({
-			month: month,
-			hemisphere: hemisphere,
-		});
-		setFormSubmitted(true);
-		console.log(islandInfo, "islandInfo");
+		// Update island info if hemisphere or month has changed
+		if (hemisphere !== islandInfo.hemisphere || month !== islandInfo.month) {
+			setIslandInfo({
+				month: month,
+				hemisphere: hemisphere,
+			});
+			setFormSubmitted(true);
+		}
 	};
 
 	// Update state if clicked critter !== new critter
 	const handleChangeCritter = (e) => {
-		// Reset changeCritter value
-		setChangeCritter(false);
-		// If user clicks icon, get value from button (parent)
+		// If user clicks icon instead of button, get value from button (parent)
 		e.target.nodeName === "IMG"
 			? checkNewCritter(e.target.parentElement.value)
 			: checkNewCritter(e.target.value);
@@ -57,8 +55,10 @@ function Landing() {
 					"Accept-Version": "1.7.0",
 				},
 			}).then((data) => {
-				console.log(data);
-				setApiData(data);
+				setApiData(data.data[islandInfo.hemisphere]);
+				// Reset form and critter states for subsequent API calls
+				setChangeCritter(false);
+				setFormSubmitted(false);
 			});
 		}
 	}, [critter, islandInfo.month, formSubmitted, changeCritter]);
@@ -75,28 +75,25 @@ function Landing() {
 					<p className="greetingCopy">
 						Blathers can help you find out what creatures you can encounter on
 						your island in Animal Crossing: New Horizons! Simply let him know
-						what hemisphere your island is on and the month.
+						what hemisphere your island is on and the month. Data is provided by
+						the <a href="https://api.nookipedia.com/">Nookipedia API.</a>
 					</p>
 					<hr />
 					<Form handleIslandInfo={handleIslandInfo} />
 				</section>
 			</div>
-			{/* TODO: delete */}
-			{islandInfo.hemisphere ? (
-				<>
-					<p>hemisphere: {islandInfo.hemisphere}</p>
-					<p>month: {islandInfo.month}</p>
-				</>
-			) : null}
-			{/* conditionally show critter tabs and critters if data returned */}
-			{Object.keys(apiData).length ? (
+			{/* Conditionally show critter tabs and critters if data returned */}
+			{Object.keys(apiData).length > 0 && (
 				<>
 					<CritterTabs changeCritter={handleChangeCritter} />
-					<CritterInfo />
+					<CritterInfo
+						critterData={apiData}
+						hemisphere={islandInfo.hemisphere}
+						month={islandInfo.month}
+						critterType={critter}
+					/>
 				</>
-			) : null}
+			)}
 		</div>
 	);
 }
-
-export default Landing;

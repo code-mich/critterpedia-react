@@ -1,4 +1,4 @@
-function Month({ onChange }) {
+export function Month({ onChange }) {
 	return (
 		<div>
 			<h3>Month</h3>
@@ -27,5 +27,3 @@ function Month({ onChange }) {
 		</div>
 	);
 }
-
-export default Month;

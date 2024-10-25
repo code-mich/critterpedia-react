@@ -1,0 +1,101 @@
+@use "./variables";
+
+.info {
+	margin-bottom: 100px;
+	.wrapper {
+		max-width: 1400px;
+	}
+}
+
+.tabs {
+	padding: 1.5% 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	animation: fadeIn 0.75s;
+	li {
+		display: flex;
+		justify-content: center;
+		padding: 3.5%;
+		margin: 0% 5%;
+		// border-radius: 50%;
+	}
+	button {
+		padding: 20%;
+		// margin: 0% 5%;
+		background-color: variables.$tropicalTeal;
+		border-radius: 50%;
+		transition: all 0.5s;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		// Styling for when label is selected
+		&:hover,
+		&:focus,
+		&:active {
+			transition: all 0.5s;
+			background-color: variables.$islandCoral;
+			cursor: pointer;
+			transform: scale(1.2);
+		}
+	}
+	// .activeButton {
+	// 	background-color: variables.$islandCoral;
+	// 	transform: scale(1.2);
+	// }
+}
+
+// Style the results divs and the individual item cards inside
+.results {
+	// Hide divs following .results by default
+	& > div {
+		display: flex;
+	}
+	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		animation: fadeIn 0.75s;
+		.critterCard {
+			width: calc((100% / 3) - 1.5%);
+			margin: 1.5%;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			align-items: center;
+			justify-content: space-between;
+			border: 5px solid variables.$accent;
+			border-radius: 5%;
+			padding: 4% 2%;
+			animation: fadeIn 0.75s;
+			background-color: variables.$contentBackground;
+			transition: transform 0.3s;
+			img {
+				filter: drop-shadow(5px 5px 5px variables.$grey);
+			}
+			.property {
+				margin-bottom: 5%;
+			}
+			&:hover,
+			&:focus {
+				transition: transform 0.3s;
+				transform: rotate(2deg);
+			}
+		}
+	}
+}
+
+// Display corresponding div when button is pressed
+// div.activeResultsTab {
+// 	display: block;
+// }
+
+.errorMessage {
+	text-align: center;
+	background-color: variables.$contentBackground;
+	margin-top: 3%;
+	padding: 2%;
+	border-radius: 3%;
+	border: 3px solid variables.$accent;
+}
