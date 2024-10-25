@@ -61,7 +61,13 @@ export function Landing() {
 				setFormSubmitted(false);
 			});
 		}
-	}, [critter, islandInfo.month, formSubmitted, changeCritter]);
+	}, [
+		critter,
+		islandInfo.month,
+		islandInfo.hemisphere,
+		formSubmitted,
+		changeCritter,
+	]);
 
 	return (
 		<div className="wrapper">

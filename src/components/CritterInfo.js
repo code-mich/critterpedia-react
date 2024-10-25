@@ -12,7 +12,7 @@ export function CritterInfo({ critterData, hemisphere, month, critterType }) {
 				{critterData.map((critter) => (
 					<li className="critterCard" key={critter.number}>
 						<h3>{critter.name}</h3>
-						<img src={critter.image_url} />
+						<img src={critter.image_url} alt={critter.name} />
 						<h4 className="itemSubheading">time</h4>
 						<p>{critter[hemisphere].times_by_month[month]}</p>
 						<h4>{isBugOrFish ? "location" : "shadow speed"}</h4>
